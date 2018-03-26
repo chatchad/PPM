@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content = "width = device-width,initial-scale=1">
+	<link rel="stylesheet" href="jquery.mobile-1.4.5.css">
+	<script src=demos/js/jquery.js></script>
+	<script src=jquery.mobile-1.4.5.js></script>
+    <script src=js.js></script>
+
+    <script >
+        function dtohex()
+        {
+            var numberValue = document.getElementById("desimal").value;
+            var decNumber = Number(numberValue);
+            var hexNumber = decNumber.toString(16).toUpperCase();
+
+            document.getElementById("display").innerHTML = hexNumber;
+            alert(hexNumber)
+        }
+        function dtobin() 
+        {
+            var x = document.getElementById("desimal").value;
+            var y = "";
+            while (x > 0) 
+            {
+                remainder = x % 2;
+                qoutient = Math.floor(x/2);
+                y = remainder + y;
+                x = qoutient;
+            }
+            document.getElementById("display").innerHTML = y;
+            alert(y)
+        }
+        function hexToRgb() {
+            var hexcolor = document.getElementById("hexc").value
+        var bigint = parseInt(hexcolor, 16);
+        var r = (bigint >> 16) & 255;
+        var g = (bigint >> 8) & 255;
+        var b = bigint & 255;
+
+         document.getElementById("R").innerHTML = r;
+         document.getElementById("G").innerHTML = g;
+         document.getElementById("B").innerHTML = b;
+}
+    </script>
+    <script>
+        $( document ).on( "click", ".show-page-loading-msg", function() {
+    var $this = $( this ),
+        theme = $this.jqmData( "theme" ) || $.mobile.loader.prototype.options.theme,
+        msgText = $this.jqmData( "msgtext" ) || $.mobile.loader.prototype.options.text,
+        textVisible = $this.jqmData( "textvisible" ) || $.mobile.loader.prototype.options.textVisible,
+        textonly = !!$this.jqmData( "textonly" );
+        html = $this.jqmData( "html" ) || "";
+    $.mobile.loading( "show", {
+            text: msgText,
+            textVisible: textVisible,
+            theme: theme,
+            textonly: textonly,
+            html: html
+    });
+})
+.on( "click", ".hide-page-loading-msg", function() {
+    $.mobile.loading( "hide" );
+});
+    </script>
+ <style >
+ .button-wrap {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+ </style>
+    
+</head>
+<body>
+
+<div id="add-form" data-role="panel" data-theme="a" data-display="reveal" data-position="right">
+        <form class="userform">
+            <h2>Login</h2>
+            <label for="name">Username:</label>
+            <input name="name" id="name" type="text" value="" data-mini="true" data-clear-btn="true">
+            <label for="password">Password:</label>
+            <input name="password" id="password" type="password" value="" data-mini="true" data-clear-btn="true" autocomplete="off">
+            <div class="ui-grid-a">
+                <div class="ui-block-a"><a class="ui-btn ui-shadow ui-corner-all ui-btn-b ui-mini" href="#" data-rel="close">Cancel</a></div>
+                <div class="ui-block-b"><a class="ui-btn ui-shadow ui-corner-all ui-btn-a ui-mini" href="#" data-rel="close">Save</a></div>
+            </div>
+        </form>
+</div><!-- /panel -->
+
+<div data-role="navbar">
+    <ul>
+        <li><a class="ui-btn-active" href="#pg1">Calculator</a></li>
+        <li><a href="#pg2">Color picker</a></li>
+        <li><a href="#pg3">Rangkuman</a></li>
+    </ul>
+</div><!-- /navbar -->
+
+
+
+<div data-role=page id=pg1 background-color="black">
+<div data-role="navbar">
+    <ul>
+        <li><a class="ui-btn-active" href="#pg1">Calculator</a></li>
+        <li><a href="#pg2">Color picker</a></li>
+        <li><a href="#pg3">Rangkuman</a></li>
+
+
+    </ul>
+</div><!-- /navbar -->
+<form>
+    <label for="text-1">Masukkan desimal</label>
+    <input type="text" name="desimal" id="desimal">
+    <input type="button" name="conhex" onclick="dtohex()" value="Con to Hex">
+    <input type="button" name="conbin" onclick="dtobin()" value="Con to Bin">
+    <p id="display">value</p>
+</form>
+</div>
+
+
+
+
+<div data-role=page id=pg2>
+<div data-role="navbar">
+    <ul>
+        <li><a class="ui-btn-active" href="#pg1">Calculator</a></li>
+        <li><a href="#pg2">Color picker</a></li>
+        <li><a href="#pg3">Rangkuman</a></li>
+    </ul>
+    
+</div><!-- /navbar -->
+
+<label for="text-1">Masukkan Hex :</label>
+<input type="text" name="hexc" id="hexc">
+<input type="button" name="Hex to RGB" onclick="hexToRgb()" value="Hex to RGB">
+<p id="R:">R</p>
+<p id="G:">G</p>
+<p id="B:">B</p>
+</div>
+
+
+<div data-role=page id=pg3>
+<div data-role="navbar">
+    <ul>
+        <li><a class="ui-btn-active" href="#pg1">Calculator</a></li>
+        <li><a href="#pg2">Color picker</a></li>
+        <li><a href="#pg3">Rangkuman</a></li>
+    </ul>
+</div><!-- /navbar -->
+
+<div class="rwd-example">
+    <!-- Lead story block -->
+    <div class="ui-block-a">
+        <div class="ui-body ui-body-d">
+            <h2>Jquery</h2>
+            <p>JavaScript library populer untuk menciptakan website interaktif yang kaya. Dirancang terutama untuk browser desktop
+</p>
+        </div>
+    </div>
+    <!-- secondary story block #1 -->
+    <div class="ui-block-b">
+        <div class="ui-body ui-body-d">
+            <h4>JQuery Mobile</h4>
+            <p>framework yang dibangun di atas jQuery, menyediakan berbagai elemen User-interface dan fitur-fitur untuk digunakan dalam aplikasi mobile.
+</p>
+        </div>
+    </div>
+    <!-- secondary story block #2 -->
+    <div class="ui-block-c">
+        <div class="ui-body ui-body-d">
+            <h4>Git hub</h4>
+            <p>Salah satu perbedaan yang mencolok antar Git dengan VCS lainnya (Subversion dan kawan-kawan) adalah dalam cara Git memperlakukan datanya. Secara konseptual, kebanyakan sistem lain menyimpan informasi sebagai sebuah daftar perubahan berkas. Sistem seperti ini (CVS, Subversion, Bazaar, dan yang lainnya) memperlakukan informasi yang disimpannya sebagai sekumpulan berkas dan perubahan yang terjadi pada berkas-berkas tersebut </p>
+        </div>
+    </div>
+</div><!-- /rwd-example -->
+
+<ol data-role="listview">
+    <li><a href="#popupBasic" data-rel="popup" class="ui-btn ui-corner-all ui-shadow ui-btn-inline" data-transition="pop">Version control</a>
+<div data-role="popup" id="popupBasic">
+<p>sistem yang mencatat
+perubahan terhadap sebuah berkas atau kumpulan berkas</p>
+</div></li>
+    <li><a href="#popupBasic" data-rel="popup" class="ui-btn ui-corner-all ui-shadow ui-btn-inline" data-transition="pop">Jenis Version control</a>
+<div data-role="popup" id="popupBasic">
+<p>VCS Lokal : digunakan untuk menyimpan patch disetiap komputer dengan format tertentu
+VCS Terpusat :dapat digunakan bersama
+VCS Terdistribusi : melakukan perubahan di lokal tanpa adanya koneksi ke server ,
+tidak bergantung dengan server </p>
+</div></li>
+    <li><a href="#popupBasic" data-rel="popup" class="ui-btn ui-corner-all ui-shadow ui-btn-inline" data-transition="pop">cara menggunakan Git</a>
+<div data-role="popup" id="popupBasic">
+<p>pertama harus menginstallnya dulu di git-scm.com kemudian
+ mengatur username dan email agar git dapat menyimpan commit yang dibuat
+lalu git init</p>
+</div></li>
+    <li><a href="#popupBasic" data-rel="popup" class="ui-btn ui-corner-all ui-shadow ui-btn-inline" data-transition="pop">Macam Bentuk Stage Dari Git</a>
+<div data-role="popup" id="popupBasic">
+<p>untracked : file yang belum di versioning oleh git
+staged: jika file tersebut di track ,makan dapat di edit, staged atau untracked 
+commited : file yang dari staging area yang mau dimasukkan ke repository</p>
+</div></li>
+    <li><a href="#popupBasic" data-rel="popup" class="ui-btn ui-corner-all ui-shadow ui-btn-inline" data-transition="pop">Fungsi dari Git</a>
+<div data-role="popup" id="popupBasic">
+<p>git add "filename"
+git init
+git commit
+git pull 
+git push</p>
+</div></li>
+</ol>
+
+<form>
+    <label for="flip-2">Ganti tema</label>
+    <select name="flip-2" id="flip-2" data-role="slider" data-track-theme="b" data-theme="b">
+        <option value="off">Off</option>
+        <option value="on">On</option>
+    </select>
+</form>
+
+<button class="show-page-loading-msg" data-textonly="false" data-textvisible="true" data-msgtext="" data-inline="true">loading </button>
+<button class="hide-page-loading-msg" data-inline="true" data-icon="delete">Stop Loading</button>
+
+<div id="add-form" data-role="panel" data-theme="a" data-display="reveal" data-position="right">
+        <form class="userform">
+            <h2>Login</h2>
+            <label for="name">Username:</label>
+            <input name="name" id="name" type="text" value="" data-mini="true" data-clear-btn="true">
+            <label for="password">Password:</label>
+            <input name="password" id="password" type="password" value="" data-mini="true" data-clear-btn="true" autocomplete="off">
+            <div class="ui-grid-a">
+                <div class="ui-block-a"><a class="ui-btn ui-shadow ui-corner-all ui-btn-b ui-mini" href="#" data-rel="close">Cancel</a></div>
+                <div class="ui-block-b"><a class="ui-btn ui-shadow ui-corner-all ui-btn-a ui-mini" href="#" data-rel="close">Save</a></div>
+            </div>
+        </form>
+    </div><!-- /panel -->
+</body>
+</html>

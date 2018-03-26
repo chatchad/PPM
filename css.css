@@ -1,0 +1,21 @@
+<style>
+#rgbHex-color {
+display: none;
+ *display: inline;
+zoom: 1;
+vertical-align: middle;
+width: 50px;
+height: 20px;
+border: solid #333 1px;
+}
+#rgbHex-output {
+display: inline-block;
+ *display: inline;
+zoom: 1;
+vertical-align: middle;
+height: 22px;
+}
+#rgbHex-input {
+vertical-align: middle;
+}
+</style>
